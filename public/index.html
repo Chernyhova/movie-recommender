@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Movie Recommender - Персональные рекомендации фильмов</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+<meta name="referrer" content="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <span class="ai-icon">🎬</span>
+                AI Movie Recommender
+            </h1>
+            <p>Получите персонализированные рекомендации фильмов на основе искусственного интеллекта</p>
+        </header>
+
+        <div class="main-content">
+            <div class="preferences-card">
+                <h2>Ваши предпочтения</h2>
+                <form id="recommendationForm">
+                    <div class="form-group">
+                        <label for="genre">Жанр</label>
+                        <select id="genre" name="genre">
+                            <option value="any">Любой</option>
+                            <option value="action">Боевик</option>
+                            <option value="comedy">Комедия</option>
+                            <option value="drama">Драма</option>
+                            <option value="horror">Ужасы</option>
+                            <option value="sci-fi">Фантастика</option>
+                            <option value="romance">Романтика</option>
+                            <option value="thriller">Триллер</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Год выпуска</label>
+                        <select id="year" name="year">
+                            <option value="any">Любой</option>
+                            <option value="2020-2024">2020-2024</option>
+                            <option value="2010-2019">2010-2019</option>
+                            <option value="2000-2009">2000-2009</option>
+                            <option value="1990-1999">1990-1999</option>
+                            <option value="1980-1989">1980-1989</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating">Минимальный рейтинг</label>
+                        <select id="rating" name="rating">
+                            <option value="any">Любой</option>
+                            <option value="8">8+</option>
+                            <option value="7">7+</option>
+                            <option value="6">6+</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mood">Настроение</label>
+                        <select id="mood" name="mood">
+                            <option value="any">Любое</option>
+                            <option value="exciting">Захватывающее</option>
+                            <option value="relaxing">Расслабляющее</option>
+                            <option value="thought-provoking">Заставляющее задуматься</option>
+                            <option value="funny">Веселое</option>
+                            <option value="emotional">Эмоциональное</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keywords">Ключевые слова (необязательно)</label>
+                        <input type="text" id="keywords" name="keywords" placeholder="например: космос, путешествия, магия">
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-icon">🤖</span>
+                        Получить рекомендации
+                    </button>
+                </form>
+            </div>
+
+            <div class="results-section">
+                <div class="results-header">
+                    <h2>Рекомендации</h2>
+                    <div class="cache-indicator" id="cacheIndicator" style="display: none;">
+                        <span class="cache-badge">📦 Из кэша</span>
+                    </div>
+                </div>
+                <div id="loadingIndicator" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Анализируем ваши предпочтения...</p>
+                </div>
+                <div id="recommendations" class="recommendations-grid"></div>
+            </div>
+        </div>
+
+        <div class="popular-section">
+            <h2>Популярные фильмы</h2>
+            <div id="popularMovies" class="movies-grid"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
